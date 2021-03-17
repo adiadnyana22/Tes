@@ -68,7 +68,7 @@ header.index ul li a{
     /* padding: 5px 0; */
 }
 
-.carousel-cell {
+.bnr .carousel-cell {
     width: 100%;
 }
 
@@ -133,7 +133,71 @@ header.index ul li a{
 
 .description p {
     margin-top: 10px;
-    line-height: 30px;
+    line-height: 2;
+}
+
+.bg-activity {
+    background-color: white;
+    padding: 2% 0;
+}
+
+.judul h2{
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.judul h2 svg {
+    background-color: #018204;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.judul h2 span {
+    font-size: 35px;
+}
+
+.bg-activity .carousel {
+    width: 100%;
+}
+
+.bg-activity .carousel-cell {
+    width: 70%;
+    margin: 0 2%;
+}
+
+.activity {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fdfdfd;
+    border-radius: 2%;
+    box-shadow: 5px 5px 15px #ccc;
+}
+
+.img-activity {
+    background-image: url(../image/snorkeling.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2% 0 0 2%;
+}
+
+.img-activity img {
+    width: 100%;
+}
+
+.text-activity {
+    padding: 20px;
+}
+
+.text-activity h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.text-activity p {
+    line-height: 1.8;
 }
 
 /* f360 page */
