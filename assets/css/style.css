@@ -173,7 +173,7 @@ header.index ul li a{
 }
 
 .activity {
-    margin: 20px 0;
+    margin: 10px 0 55px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: #fdfdfd;
@@ -203,6 +203,49 @@ header.index ul li a{
 
 .text-activity p {
     line-height: 1.8;
+}
+
+.bg-fasil {
+    padding: 2% 0;
+    /* background-color: #fdfdfd; */
+    background: #4AC29A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.fasil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-fasil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.img-fasil {
+    width: 400px;
+}
+
+.img-fasil img {
+    width: 100%;
+}
+
+.fasil-grid {
+    margin-right: 25%;
+}
+
+.fasil-det {
+    width: 100%;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.fasil-det svg {
+    color: #018204;
+    font-size: 30px;
+    padding: 0 10px;
 }
 
 /* f360 page */
