@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/plugin/fullPage.js-master/dist/fullpage.css">
     <link rel="stylesheet" href="assets/plugin/fancybox-2.1.7/source/jquery.fancybox.css">
-    <!-- <link rel="stylesheet" href="assets/plugin/fancybox-master/dist/jquery.fancybox.css">
-    <script src="assets/plugin/fancybox-master/dist/jquery.fancybox.js"></script> -->
-    <!-- <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
-<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script> -->
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
     <script src="https://kit.fontawesome.com/f0f2d9386c.js" crossorigin="anonymous"></script>
     <script src="assets/plugin/jquery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="assets/plugin/fullPage.js-master/vendors/scrolloverflow.min.js"></script>
@@ -46,6 +41,14 @@
             $(".fancybox").fancybox();
 
         });
+
+        function openBar(){
+            document.getElementById("bar").style.width = "100vw";
+        }
+
+        function closeBar(){
+            document.getElementById("bar").style.width = "0";
+        }
     </script>
     <style>
         #fp-nav ul li a span {
@@ -54,17 +57,33 @@
     </style>
 </head>
 <body>
+    <div class="menuBar" id="bar">
+        <div class="close" onclick="closeBar()">
+            <button><i class="fas fa-times"></i></button>
+        </div>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="">Paket Wisata</a></li>
+            <li><a href="">Kontak</a></li>
+        </ul>
+    </div>
     <header class="home">
         <nav class="container">
             <div class="logo">
                 <h1><span class="span1">Pantai</span><span class="span2">Tiga</span><span class="span3">Warna</span></h1>
             </div>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="gallery.html">Galeri</a></li>
-                <li><a href="">Paket Wisata</a></li>
-                <li><a href="">Kontak</a></li>
-            </ul>
+            <div class="navigasi">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
+                    <li><a href="">Paket Wisata</a></li>
+                    <li><a href="">Kontak</a></li>
+                </ul>
+                <div class="toggle" onclick="openBar()">
+                    <button><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
@@ -109,6 +128,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="judulPage">
+                <h2>Galeri</h2>
             </div>
         </div>
     </main>

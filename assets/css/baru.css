@@ -329,6 +329,19 @@ nav ul li a {
     /* margin: 10px 20px; */
 }
 
+.judulPage {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.judulPage h2 {
+    font-size: 60px;
+    color: #1e1e1e;
+    padding: 0 20px 10px;
+    letter-spacing: 5px;
+}
+
 /* 360 Page */
 iframe {
     border: 0px;
@@ -394,6 +407,24 @@ header.f360 {
 .back:hover {
     background-color: rgb(0, 128, 179, 0.5);
     /* color: black; */
+}
+
+/* Paket Wisata Page */
+.bg-pakwis{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paketWisata {
+    width: 80%;
+    height: 600px;
+    background-color: #eaeaea;
+    box-shadow: 10px 10px 20px #555, -10px -10px 20px #ececec;
+    border: 1px solid #ececec;
+    border-radius: 50px;
 }
 
 @media(max-width: 576px){
