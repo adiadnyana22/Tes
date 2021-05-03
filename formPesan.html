@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <link rel="stylesheet" href="assets/css/baru.css">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <script src="assets/js/formValid.js"></script>
+    <script src="assets/plugin/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <section class="bg-form">
+        <div class="form">
+            <h1>Form Pemesanan Paket Wisata</h1>
+            <form action="" id="form1">
+                <label for="">Nama :
+                    <input type="text" placeholder="Nama ..." required name="nama" id="namaForm">
+                </label>
+                <label for="">Alamat :
+                    <input type="text" placeholder="Alamat ..." required name="alamat" id="alamatForm">
+                </label>
+                <label for="">No. Telp :
+                    <input type="text" placeholder="No. Telp ..." required name="noTelp" id="noTelpForm">
+                </label>
+                <div>
+                    <!-- Desain Belum Ada -->
+                    <div><label for="">Pilihan Paket Wisata :</label></div>
+                    <!-- <div class="row">
+                        <div class="col-4">
+                            <label for="">
+                                <input type="radio" name="radioPW" required id="pakwisForm" value="A">
+                            </label>
+                            <div class="ket-form">
+                                Test ae bang A
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label for="">
+                                <input type="radio" name="radioPW" required id="pakwisForm" value="B">
+                            </label>
+                            <div class="ket-form">
+                                Test ae bang B
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label for="">
+                                <input type="radio" name="radioPW" required id="pakwisForm" value="C">
+                            </label>
+                            <div class="ket-form">
+                                Test ae bang C
+                            </div>
+                        </div>
+                    </div> -->
+                    <select name="selectPW" id="pakwisForm" onchange="perhitungan()">
+                        <option value="0">-- Pilih Paket Wisara --</option>
+                        <option value="100000">Paket Wisata A</option>
+                        <option value="150000">Paket Wisata B</option>
+                        <option value="200000">Paket Wisata C</option>
+                    </select>
+                </div>
+                <label for="" class="num">Jumlah Paket Yang dibeli
+                    <div class="row">
+                        <div class="col-2">
+                            <button type="button" id="minus">-</button>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()">
+                        </div>
+                        <div class="col-2">
+                            <button type="button" id="plus">+</button>
+                        </div>
+                    </div>
+                </label>
+                <label for="">Total Pembayaran :
+                    <input type="text" value="0" name="total" disabled id="total">
+                </label>
+                <button type="submit" class="btn-submit">Kirim</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        var num = document.getElementById("numForm");
+        var plusBtn = document.getElementById("plus");
+        var minusBtn = document.getElementById("minus");
+        var selectForm = document.getElementById("pakwisForm");
+        var total = document.getElementById("total");
+
+        function perhitungan(){
+            var numVal = Number(num.value);
+            var selVal = Number(selectForm.value);
+            total.value = numVal*selVal;
+        }
+
+        plusBtn.addEventListener('click', () => {
+            var numVal = Number(num.value);
+            numVal += 1;
+            num.value = numVal;
+            perhitungan();
+        });
+
+        minusBtn.addEventListener('click', () => {
+            var numVal = Number(num.value);
+            if(numVal != 0){
+                numVal -= 1;
+                num.value = numVal;
+            }
+            perhitungan();
+        });
+
+        console.log(num.value);
+    </script>
+</body>
+</html>
