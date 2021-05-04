@@ -66,7 +66,7 @@
                             <button type="button" id="minus">-</button>
                         </div>
                         <div class="col-8">
-                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()">
+                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()" onkeyup="cekAngka()">
                         </div>
                         <div class="col-2">
                             <button type="button" id="plus">+</button>
@@ -91,6 +91,15 @@
             var numVal = Number(num.value);
             var selVal = Number(selectForm.value);
             total.value = numVal*selVal;
+        }
+
+        function cekAngka(){
+            var pola=/^\d+$/;
+            if(num.value == ""){
+                
+            } else if(!pola.test(num.value)){
+                num.value = 0;
+            }
         }
 
         plusBtn.addEventListener('click', () => {
