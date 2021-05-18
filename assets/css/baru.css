@@ -505,8 +505,9 @@ header.f360 {
 
 .form {
     background-color: #ececec;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 5px 5px 10px #999, -10px -10px 10px #fafafa;
+    /* box-shadow: 10px 10px 20px #555, -5px -5px 20px #ececec; */
     border-radius: 10px;
     width: 80%;
 }
@@ -518,9 +519,9 @@ header.f360 {
 }
 
 .form label {
-    font-size: 18px;
+    font-size: 16px;
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .form input, .form select {

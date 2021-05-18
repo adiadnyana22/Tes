@@ -16,13 +16,16 @@
             <h1>Form Pemesanan Paket Wisata</h1>
             <form action="" id="form1">
                 <label for="">Nama :
-                    <input type="text" placeholder="Nama ..." required name="nama" id="namaForm">
+                    <input type="text" placeholder="Nama ..." required name="nama" id="namaForm" onkeyup="cekNama()">
                 </label>
                 <label for="">Alamat :
                     <input type="text" placeholder="Alamat ..." required name="alamat" id="alamatForm">
                 </label>
+                <label for="">Email :
+                    <input type="email" placeholder="Email ..." required name="email" id="emailForm">
+                </label>
                 <label for="">No. Telp :
-                    <input type="text" placeholder="No. Telp ..." required name="noTelp" id="noTelpForm">
+                    <input type="text" placeholder="No. Telp ..." required name="noTelp" id="noTelpForm" onkeyup="cekNoTelp()">
                 </label>
                 <div>
                     <!-- Desain Belum Ada -->
@@ -84,8 +87,27 @@
         var num = document.getElementById("numForm");
         var plusBtn = document.getElementById("plus");
         var minusBtn = document.getElementById("minus");
+        var namaForm = document.getElementById("namaForm");
+        var emailForm = document.getElementById("emailForm");
+        var noTelpForm = document.getElementById("noTelpForm");
         var selectForm = document.getElementById("pakwisForm");
         var total = document.getElementById("total");
+
+        function cekNama(){
+            var pola = /^[a-zA-Z]+$/;
+            var temp = namaForm.value;
+            if(!pola.test(temp)){
+                namaForm.value = temp.replace(/[0-9]/g, '');
+            }
+        }
+
+        function cekNoTelp(){
+            var pola = /^\d+$/;
+            var temp = noTelpForm.value;
+            if(!pola.test(temp)){
+                noTelpForm.value = temp.replace(/[a-zA-Z]/g, '');
+            }
+        }
 
         function perhitungan(){
             var numVal = Number(num.value);
@@ -94,7 +116,7 @@
         }
 
         function cekAngka(){
-            var pola=/^\d+$/;
+            var pola = /^\d+$/;
             if(num.value == ""){
                 
             } else if(!pola.test(num.value)){
