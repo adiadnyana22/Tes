@@ -8,13 +8,32 @@
     <link rel="stylesheet" href="assets/css/baru.css">
     <link rel="stylesheet" href="assets/css/grid.css">
     <script src="assets/js/formValid.js"></script>
-    <script src="assets/plugin/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- <script src="assets/plugin/jquery-3.3.1/jquery-3.3.1.min.js"></script> -->
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/12915/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
 </head>
 <body>
     <section class="bg-form">
         <div class="form">
             <h1>Form Pemesanan Paket Wisata</h1>
-            <form action="" id="form1">
+            <form id="myForm" onsubmit="return checkForm();">
                 <label for="">Nama :
                     <input type="text" placeholder="Nama ..." required name="nama" id="namaForm" onkeyup="cekNama()">
                 </label>
@@ -69,7 +88,7 @@
                             <button type="button" id="minus">-</button>
                         </div>
                         <div class="col-8">
-                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()" onkeyup="cekAngka()">
+                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()" onkeyup="cekAngka()" style="text-align: center;">
                         </div>
                         <div class="col-2">
                             <button type="button" id="plus">+</button>
@@ -77,9 +96,9 @@
                     </div>
                 </label>
                 <label for="">Total Pembayaran :
-                    <input type="text" value="0" name="total" disabled id="total">
+                    <input type="text" value="Rp. 0" name="total" disabled id="total">
                 </label>
-                <button type="submit" class="btn-submit">Kirim</button>
+                <button type="submit" class="btn-submit" onclick='SubForm()'>Kirim</button>
             </form>
         </div>
     </section>
@@ -92,6 +111,24 @@
         var noTelpForm = document.getElementById("noTelpForm");
         var selectForm = document.getElementById("pakwisForm");
         var total = document.getElementById("total");
+
+        function checkForm(){
+            var polaEmail=/^.+\@.+\..+$/;
+            if(!polaEmail.test(emailForm.value)){
+                alert("Masukkan Email Dengan Benar\nContoh : andru@microsoft.com");
+                return false;
+            } else if(selectForm.value == 0){
+                alert("Pilih Paket Wisata Terlebih Dahulu");
+                return false;
+            } else if(num.value == 0){
+                alert("Masukkan Jumlah Paket Dengan Benar\n(Minimal 1)");
+                return false;
+            }
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
 
         function cekNama(){
             var pola = /^[a-zA-Z]+$/;
@@ -112,7 +149,7 @@
         function perhitungan(){
             var numVal = Number(num.value);
             var selVal = Number(selectForm.value);
-            total.value = numVal*selVal;
+            total.value = 'Rp. ' + numberWithCommas(numVal*selVal);
         }
 
         function cekAngka(){
