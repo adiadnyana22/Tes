@@ -20,7 +20,8 @@
 				type:"post",
 				data:$("#myForm").serializeArray(),
 				success: function(){
-					alert("Form Data Submitted :)")
+					alert("Form Data Submitted :)");
+                    window.location.href = "index.html";
 				},
 				error: function(){
 					alert("There was an error :(")
@@ -33,7 +34,7 @@
     <section class="bg-form">
         <div class="form">
             <h1>Form Pemesanan Paket Wisata</h1>
-            <form id="myForm">
+            <form id="myForm" onsubmit="return checkForm();">
                 <label for="">Nama :
                     <input type="text" placeholder="Nama ..." required name="nama" id="namaForm" onkeyup="cekNama()">
                 </label>
@@ -49,32 +50,6 @@
                 <div>
                     <!-- Desain Belum Ada -->
                     <div><label for="">Pilihan Paket Wisata :</label></div>
-                    <!-- <div class="row">
-                        <div class="col-4">
-                            <label for="">
-                                <input type="radio" name="radioPW" required id="pakwisForm" value="A">
-                            </label>
-                            <div class="ket-form">
-                                Test ae bang A
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label for="">
-                                <input type="radio" name="radioPW" required id="pakwisForm" value="B">
-                            </label>
-                            <div class="ket-form">
-                                Test ae bang B
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label for="">
-                                <input type="radio" name="radioPW" required id="pakwisForm" value="C">
-                            </label>
-                            <div class="ket-form">
-                                Test ae bang C
-                            </div>
-                        </div>
-                    </div> -->
                     <select name="selectPW" id="pakwisForm" onchange="perhitungan()">
                         <option value="0">-- Pilih Paket Wisara --</option>
                         <option value="100000">Paket Wisata A</option>
@@ -98,8 +73,8 @@
                 <label for="">Total Pembayaran :
                     <input type="text" value="Rp. 0" name="total" disabled id="total">
                 </label>
-                <button class="btn-submit" onclick='SubForm()'>Kirim</button>
             </form>
+            <button class="btn-submit" onclick='SubForm()'>Kirim</button>
         </div>
     </section>
     <script>
