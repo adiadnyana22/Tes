@@ -73,8 +73,9 @@
                 <label for="">Total Pembayaran :
                     <input type="text" value="Rp. 0" name="total" disabled id="total">
                 </label>
+                <!-- <button class="btn-submit" id="btnUn">Kirim</button> -->
             </form>
-            <button class="btn-submit" onclick='SubForm()'>Kirim</button>
+            <button class="btn-submit" onclick='SubForm()' id="btnDone">Kirim</button>
         </div>
     </section>
     <script>
@@ -86,6 +87,8 @@
         var noTelpForm = document.getElementById("noTelpForm");
         var selectForm = document.getElementById("pakwisForm");
         var total = document.getElementById("total");
+        var btnUn = document.getElementById("btnUn");
+        var btnDone = document.getElementById("btnDone");
 
         function checkForm(){
             var polaEmail=/^.+\@.+\..+$/;

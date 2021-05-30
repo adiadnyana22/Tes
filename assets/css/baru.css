@@ -543,6 +543,26 @@ header.f360 {
     margin-top: 10px;
 }
 
+.disableBtn {
+    display: none;
+}
+
+/* Kontak Page */
+.kontak-card {
+    text-align: center;
+    margin: 20%;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.kontak-card h2 {
+    font-size: 30px;
+}
+
+.kontak-card span {
+    font-weight: bold;
+}
+
 @media(max-width: 576px){
     .toggle {
         display: block;
