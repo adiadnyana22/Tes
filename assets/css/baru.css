@@ -549,18 +549,23 @@ header.f360 {
 
 /* Kontak Page */
 .kontak-card {
-    text-align: center;
+    /* text-align: center; */
     margin: 20%;
     line-height: 2;
     font-size: 18px;
 }
 
 .kontak-card h2 {
+    margin-top: 30px;
     font-size: 30px;
 }
 
 .kontak-card span {
     font-weight: bold;
+}
+
+.img-kontak img {
+    width: 100%;
 }
 
 @media(max-width: 576px){

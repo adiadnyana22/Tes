@@ -10,31 +10,31 @@
     <script src="assets/js/formValid.js"></script>
     <!-- <script src="assets/plugin/jquery-3.3.1/jquery-3.3.1.min.js"></script> -->
     <script
-		src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		crossorigin="anonymous"></script>
-	<script>
-		function SubForm (){
-			$.ajax({
-				url:"https://api.apispreadsheets.com/data/12915/",
-				type:"post",
-				data:$("#myForm").serializeArray(),
-				success: function(){
-					alert("Form Data Submitted :)");
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script>
+        function SubForm (){
+            $.ajax({
+                url:"https://api.apispreadsheets.com/data/13572/",
+                type:"post",
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                    alert("Form Data Submitted :)");
                     window.location.href = "index.html";
-				},
-				error: function(){
-					alert("There was an error :(")
-				}
-			});
-		}
+                },
+                error: function(){
+                    alert("There was an error :(");
+                }
+            });
+        }
 	</script>
 </head>
 <body>
     <section class="bg-form">
         <div class="form">
             <h1>Form Pemesanan Paket Wisata</h1>
-            <form id="myForm" onsubmit="return checkForm();">
+            <form id="myForm" onsubmit="return checkForm()">
                 <label for="">Nama :
                     <input type="text" placeholder="Nama ..." required name="nama" id="namaForm" onkeyup="cekNama()">
                 </label>
@@ -52,30 +52,39 @@
                     <div><label for="">Pilihan Paket Wisata :</label></div>
                     <select name="selectPW" id="pakwisForm" onchange="perhitungan()">
                         <option value="0">-- Pilih Paket Wisara --</option>
-                        <option value="100000">Paket Wisata A</option>
-                        <option value="150000">Paket Wisata B</option>
-                        <option value="200000">Paket Wisata C</option>
+                        <option value="250000">Paket Snorkeling (Transportasi, Snorkeling, Makan) Paket Perorangan</option>
+                        <option value="500000">Paket Berkemah (Transportasi, Lahan dan Tenda, Snorkeling, Makan) Paket Perorangan</option>
+                        <option value="750000">Paket Keluarga / Grup (Transportasi, Foto Dokumentasi, Makan) Paket Grup 5 Orang</option>
                     </select>
                 </div>
-                <label for="" class="num">Jumlah Paket Yang dibeli
-                    <div class="row">
-                        <div class="col-2">
-                            <button type="button" id="minus">-</button>
-                        </div>
-                        <div class="col-8">
-                            <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()" onkeyup="cekAngka()" style="text-align: center;">
-                        </div>
-                        <div class="col-2">
-                            <button type="button" id="plus">+</button>
-                        </div>
+                <div class="row">
+                    <div class="col-6" style="padding: 0 !important; margin-right: 2%;">
+                        <label for="">Tanggal :
+                            <input type="date" required name="tanggal" id="tanggalForm" value="0">
+                        </label>
                     </div>
-                </label>
+                    <div class="col-6" style="padding: 0 !important; margin-top: 2px; margin-left: 2%;">
+                        <label for="" class="num">Jumlah Paket Yang dibeli
+                            <div class="row">
+                                <div class="col-2" style="padding: 0 !important;">
+                                    <button type="button" id="minus">-</button>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" value="0" id="numForm" name="num" onchange="perhitungan()" onkeyup="cekAngka()" style="text-align: center;">
+                                </div>
+                                <div class="col-2" style="padding: 0 !important;">
+                                    <button type="button" id="plus">+</button>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
                 <label for="">Total Pembayaran :
                     <input type="text" value="Rp. 0" name="total" disabled id="total">
                 </label>
-                <!-- <button class="btn-submit" id="btnUn">Kirim</button> -->
+                <button class="btn-submit" id="btnUn">Kirim</button>
             </form>
-            <button class="btn-submit" onclick='SubForm()' id="btnDone">Kirim</button>
+            <!-- <button class="btn-submit" onclick='SubForm()' id="btnDone">Kirim</button> -->
         </div>
     </section>
     <script>
@@ -86,6 +95,7 @@
         var emailForm = document.getElementById("emailForm");
         var noTelpForm = document.getElementById("noTelpForm");
         var selectForm = document.getElementById("pakwisForm");
+        var tanggalForm = document.getElementById("tanggalForm");
         var total = document.getElementById("total");
         var btnUn = document.getElementById("btnUn");
         var btnDone = document.getElementById("btnDone");
@@ -100,6 +110,12 @@
                 return false;
             } else if(num.value == 0){
                 alert("Masukkan Jumlah Paket Dengan Benar\n(Minimal 1)");
+                return false;
+            } else if(tanggalForm == 0){
+                alert("Pilih Tanggal Terlebih Dahulu");
+                return false;
+            } else {
+                SubForm();
                 return false;
             }
         }
