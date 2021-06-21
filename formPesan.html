@@ -101,6 +101,8 @@
         var btnDone = document.getElementById("btnDone");
 
         function checkForm(){
+            const nowDay = new Date();
+            var dateInput = new Date(tanggalForm.value);
             var polaEmail=/^.+\@.+\..+$/;
             if(!polaEmail.test(emailForm.value)){
                 alert("Masukkan Email Dengan Benar\nContoh : andru@microsoft.com");
@@ -111,8 +113,21 @@
             } else if(num.value == 0){
                 alert("Masukkan Jumlah Paket Dengan Benar\n(Minimal 1)");
                 return false;
-            } else if(tanggalForm == 0){
-                alert("Pilih Tanggal Terlebih Dahulu");
+            } else if(nowDay.getFullYear() > dateInput.getFullYear()){
+                alert("Pilih Tanggal Dengan Benar\nTanggal Paling Cepat 1 Hari Setelah Hari Ini");
+                return false;
+            } else if(nowDay.getFullYear() == dateInput.getFullYear()){
+                if(nowDay.getMonth() < dateInput.getMonth()){
+                    SubForm();
+                } else if(nowDay.getMonth() > dateInput.getMonth()) {
+                    alert("Pilih Tanggal Dengan Benar\nTanggal Paling Cepat 1 Hari Setelah Hari Ini");
+                } else {
+                    if(nowDay.getDate() < dateInput.getDate()){
+                        SubForm();
+                    } else if(nowDay.getDate() >= dateInput.getDate()) {
+                        alert("Pilih Tanggal Dengan Benar\nTanggal Paling Cepat 1 Hari Setelah Hari Ini");
+                    }
+                }
                 return false;
             } else {
                 SubForm();
